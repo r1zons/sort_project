@@ -55,8 +55,10 @@ int main(int argc, char *argv[]) {
     long long *heap_test3 = calloc(n, sizeof(long long));
     long long *heap_test4 = calloc(n, sizeof(long long));
 
-    increasing_array_generation(heap_test1, n);
-    decreasion_array_generation(heap_test2, n);
+    for (int i = 0; i < n; ++i) { 
+        heap_test1[i] = select_test1[i];
+        heap_test2[i] = select_test2[i];
+    }
     random_array_generation(heap_test3, n);
     random_array_generation(heap_test4, n);
 
@@ -73,8 +75,8 @@ int main(int argc, char *argv[]) {
     selection_sort(select_test3, n);
     selection_sort(select_test4, n);
 
-    printf("%d %d %d %d", is_sorted(select_test1, n), is_sorted(select_test2, n), 
-                          is_sorted(select_test3, n), is_sorted(select_test4, n));
+    // printf("%d %d %d %d", is_sorted(select_test1, n), is_sorted(select_test2, n), 
+    //                       is_sorted(select_test3, n), is_sorted(select_test4, n));
     
     return 0;
 
@@ -131,6 +133,10 @@ void selection_sort(long long *array, int size) {
         }
         if (min != i) swap(array + i, array + min);
     }
+}
+
+void heapify(long long *array, int index) { 
+    
 }
 
 void heap_sort(long long *array, int size) { 
