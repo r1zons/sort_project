@@ -113,15 +113,15 @@ int main(int argc, char *argv[]) {
     
     clock_t program_stop = clock();
 
-    printf("TEST #      Time (sec)          Comparisons                     Swap\n");
+    printf("TEST #      Time (sec)             Comparisons                    Swap\n");
     
     for (int i = 0; i < 4; ++i) {
         printf("%d\n", i + 1);
 
-        printf("Selection : %10.4Lf     %16lld         %16lld\n",
+        printf("Selection : %10.4Lf        %16lld        %16lld\n",
             (long double)(select_stop[i] - select_start[i])/CLOCKS_PER_SEC, select_comp[i], select_swap[i]);
         
-        printf("Heap      : %10.4Lf     %16lld         %16lld\n",
+        printf("Heap      : %10.4Lf        %16lld        %16lld\n",
             (long double)(heap_stop[i]   - heap_start[i])  /CLOCKS_PER_SEC, heap_comp[i],  heap_swap[i]);
     
         puts("");
