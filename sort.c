@@ -154,11 +154,12 @@ void swap(long long *a, long long *b) {
 }
 
 long long compare(long long a, long long b) {
+    if (a == LLONG_MIN) a = LLONG_MAX;
+    if (b == LLONG_MIN) b = LLONG_MAX;
     if (a >= 0 && b >= 0) return a > b;
     if (a < 0 && b < 0) return a < b;
     if (a >= 0 && b < 0) return a > -b;
     if (a < 0 && b >= 0) return -a > b;
-    if (a == b || a == -b) return 1;
     return 1;
 }
 
