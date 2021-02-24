@@ -69,44 +69,44 @@ int main(int argc, char *argv[]) {
     select_start[0] = clock();
     selection_sort(select_test1, n, 0);
     select_stop[0]  = clock();
-    is_sorted(select_test1, n, 1, 1);
+    is_sorted(select_test1, n, 1, 0);
     
     select_start[1] = clock();
     selection_sort(select_test2, n, 1);
     select_stop[1]  = clock();
-    is_sorted(select_test2, n, 2, 1);
+    is_sorted(select_test2, n, 2, 0);
     
     select_start[2] = clock();
     selection_sort(select_test3, n, 2);
     select_stop[2]  = clock();
-    is_sorted(select_test3, n, 3, 1);
+    is_sorted(select_test3, n, 3, 0);
     
     select_start[3] = clock();
     selection_sort(select_test4, n, 3);
     select_stop[3]  = clock();
-    is_sorted(select_test4, n, 4, 1);
+    is_sorted(select_test4, n, 4, 0);
     
     puts("");
     
     heap_start[0] = clock();
     heap_sort(heap_test1, n, 0);
     heap_stop[0]  = clock();
-    is_sorted(heap_test1, n, 1, 0);
+    is_sorted(heap_test1, n, 1, 1);
     
     heap_start[1] = clock();
     heap_sort(heap_test2, n, 1);
     heap_stop[1]  = clock();
-    is_sorted(heap_test2, n, 2, 0);
+    is_sorted(heap_test2, n, 2, 1);
     
     heap_start[2] = clock();
     heap_sort(heap_test3, n, 2);
     heap_stop[2]  = clock();
-    is_sorted(heap_test3, n, 3, 0);
+    is_sorted(heap_test3, n, 3, 1);
     
     heap_start[3] = clock();
     heap_sort(heap_test4, n, 3);
     heap_stop[3]  = clock();
-    is_sorted(heap_test4, n, 4, 0);
+    is_sorted(heap_test4, n, 4, 1);
     
     puts("");
     
@@ -158,6 +158,7 @@ long long compare(long long a, long long b) {
     if (a < 0 && b < 0) return a < b;
     if (a >= 0 && b < 0) return a > -b;
     if (a < 0 && b >= 0) return -a > b;
+    if (a == b || a == -b) return 1;
     return 1;
 }
 
@@ -173,6 +174,7 @@ void is_sorted(long long *array, int size, int num, int par) {
     printf("Array #%d is sorted succesfully ", num);
     if (par) printf("by Heap sort\n");
     else printf("by Selection sort\n");
+    fflush(stdout);
 }
 
 void random_array_generation(long long *array, int size) {
