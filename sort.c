@@ -62,10 +62,9 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < n; ++i) {
         heap_test1[i] = select_test1[i];
         heap_test2[i] = select_test2[i];
+        heap_test3[i] = select_test3[i];
+        heap_test4[i] = select_test4[i];
     }
-
-    random_array_generation(heap_test3, n);
-    random_array_generation(heap_test4, n);
 
     select_start[0] = clock();
     selection_sort(select_test1, n, 0);
@@ -129,6 +128,17 @@ int main(int argc, char *argv[]) {
     
     printf("Program run time : %.4Lf seconds\n", (long double)(program_stop - program_start)/CLOCKS_PER_SEC);
     
+
+    free(select_test1);
+    free(select_test2);
+    free(select_test3);
+    free(select_test4);
+
+    free(heap_test1);
+    free(heap_test2);
+    free(heap_test3);
+    free(heap_test4);
+
     return 0;
 }
 
